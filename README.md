@@ -183,30 +183,22 @@ FPGA Synthesis and Analysis
 
 └── README.md
 
-**##🚀 Applications**
+## 🚀 Applications
+
 Carry Look-Ahead Adders can be used in high-speed arithmetic circuits such as:
-Arithmetic Logic Units (ALUs) 
 
-Processor datapaths
+- Arithmetic Logic Units (ALUs)
+- Processor datapaths
+- DSP systems
+- High-speed arithmetic units
+- Digital signal processing applications
 
-DSP systems
+## 🔮 Future Improvements
 
-High-speed arithmetic units
-
-Digital signal processing applications
-
-**##🔮 Future Improvements**
-Perform detailed synthesis and area analysis
-
-Analyze maximum operating frequency
-
-Compare CLA performance with a Ripple Carry Adder
-
-Add more comprehensive testbench scenarios
-
-Add corner-case verification
-
-Explore FPGA hardware implementation
-
-Extend verification using SystemVerilog and UVM
-
+- Perform detailed synthesis and area analysis
+- Analyze maximum operating frequency
+- Compare CLA performance with a Ripple Carry Adder
+- Add more comprehensive testbench scenarios
+- Add corner-case verification
+- Explore FPGA hardware implementation
+- Extend verification using SystemVerilog and UVM
