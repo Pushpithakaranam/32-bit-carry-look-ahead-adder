@@ -2,181 +2,225 @@
 
 
 
-\## Overview
+A hierarchical RTL implementation of a \*\*32-bit Carry Look-Ahead Adder (CLA)\*\* using Verilog HDL, with functional verification and FPGA-oriented synthesis analysis.
 
 
 
-This project implements a \*\*32-bit Carry Look-Ahead Adder (CLA)\*\* using Verilog HDL.
+\---
 
 
 
-A Carry Look-Ahead Adder is a fast binary adder that reduces the delay caused by ripple carry propagation by calculating carry signals in advance using \*\*Generate (G)\*\* and \*\*Propagate (P)\*\* signals.
+\## 📌 Objective
 
 
 
-\## Objective
+The objective of this project is to design and verify a \*\*32-bit Carry Look-Ahead Adder\*\* using Verilog HDL.
 
 
 
-The objective of this project is to design and simulate a \*\*32-bit Carry Look-Ahead Adder\*\* using hierarchical Verilog modules.
+Unlike a Ripple Carry Adder, where the carry propagates sequentially from one bit to the next, a Carry Look-Ahead Adder calculates carry signals in advance using \*\*Generate (G)\*\* and \*\*Propagate (P)\*\* signals.
 
 
 
-The design is built using smaller modules and combines them to create the complete 32-bit adder.
+This reduces carry propagation delay and makes the CLA suitable for high-speed arithmetic applications.
 
 
 
-\## Architecture
+\---
 
 
 
-The 32-bit CLA is designed hierarchically:
+\## 🏗️ Design Overview
 
 
 
-\- 1-bit Generate/Propagate logic
+The design is implemented hierarchically using smaller modules:
 
-\- 4-bit Carry Look-Ahead Adder
 
-\- 32-bit Carry Look-Ahead Adder
 
-\- Verilog testbench for functional verification
 
 
+&#x20;                ```text
 
-\### Basic Concept
+&#x20;                32-bit Carry Look-Ahead Adder
 
+&#x20;                             │
 
+&#x20;         ┌───────┬───────┬───────┬───────┐
 
-For each bit:
+&#x20;         │       │       │       │       │
 
+&#x20;      4-bit    4-bit   4-bit   4-bit    ...
 
+&#x20;        CLA      CLA     CLA     CLA
 
-\- \*\*Generate:\*\* `G = A \& B`
+&#x20;         │       │       │       │
 
-\- \*\*Propagate:\*\* `P = A ^ B`
+&#x20;         └───────┴───────┴───────┴───────┘
 
+&#x20;                             │
 
+&#x20;                      8 × 4-bit CLA
 
-The carry signals are calculated using the generate and propagate signals instead of waiting for the carry to ripple through every stage.
+&#x20;                          Blocks
 
+&#x20;                             │
 
+&#x20;                   Generate / Propagate
 
-\## Project Files
+&#x20;                          Logic
 
+&#x20;                             │
 
+&#x20;                        Sum + Cout
 
-| File | Description |
+```
 
-|------|-------------|
 
-| `cla\_32bit.v` | Top-level 32-bit Carry Look-Ahead Adder |
 
-| `cla\_4bit.v` | 4-bit Carry Look-Ahead Adder module |
+The design uses:
 
-| `gp\_1bit.v` | 1-bit Generate and Propagate logic |
 
-| `tb.v` | Verilog testbench for functional verification |
 
+1-bit Generate/Propagate logic
 
+4-bit Carry Look-Ahead Adder
 
-\## Features
+Multiple 4-bit blocks to construct the 32-bit adder
 
+A Verilog testbench for functional verification
 
+⚙️ How Carry Look-Ahead Works
 
-\- 32-bit binary addition
 
-\- Carry Look-Ahead architecture
 
-\- Hierarchical Verilog design
+For each bit position, the Generate and Propagate signals are calculated as:
 
-\- Modular RTL implementation
 
-\- Functional verification using a Verilog testbench
 
-\- Designed using standard digital design principles
+Generate:
 
+G = A \& B
 
 
-\## Tools Used
 
+Propagate:
 
+P = A ^ B
 
-\- \*\*Verilog HDL\*\*
 
-\- \*\*Xilinx ISE 14.7\*\*
 
-\- \*\*ModelSim / Xilinx simulation environment\*\* (as applicable)
+The carry output of each stage is then calculated using these signals instead of waiting for the carry to ripple through every preceding stage.
 
 
 
-\## Expected Inputs and Outputs
+For a bit position:
 
 
 
-\### Inputs
+C(i+1) = G(i) + P(i)C(i)
 
 
 
-\- `A` – 32-bit input
+This approach allows carry signals to be determined faster than in a conventional Ripple Carry Adder.
 
-\- `B` – 32-bit input
 
-\- `Cin` – Input carry
 
+📂 Module Description
 
+File	Description
 
-\### Outputs
+cla\_32bit.v	Top-level 32-bit Carry Look-Ahead Adder
 
+cla\_4bit.v	4-bit Carry Look-Ahead Adder
 
+gp\_1bit.v	Generate and Propagate logic
 
-\- `Sum` – 32-bit sum
+tb.v	Verilog testbench for functional verification
 
-\- `Cout` – Output carry
+🔬 Simulation \& Verification
 
 
 
-The design performs:
+The design was functionally verified using a Verilog testbench.
 
 
 
-`A + B + Cin = Sum + Cout`
+The testbench applies different combinations of:
 
 
 
-\## Verification
+32-bit input A
 
+32-bit input B
 
+Input carry Cin
 
-A Verilog testbench is provided in `tb.v` to verify the functionality of the 32-bit Carry Look-Ahead Adder with different input combinations.
 
 
+and verifies the resulting:
 
-\## Applications
 
 
+32-bit Sum
 
-Carry Look-Ahead Adders are useful in high-speed arithmetic circuits such as:
+Output carry Cout
 
+Simulation Waveform
 
 
-\- ALUs
 
-\- CPUs
+The following waveform demonstrates the simulated behavior of the 32-bit Carry Look-Ahead Adder.
 
-\- DSP processors
 
-\- Arithmetic datapaths
 
-\- Digital signal processing systems
+📊 Synthesis \& Analysis Results
 
 
 
-\## Project Structure
+The design was synthesized using Xilinx ISE 14.7 and analyzed for area, timing, and power characteristics.
 
 
 
-```text
+Area Analysis
+
+LUT Utilization
+
+
+
+I/O Utilization
+
+
+
+Timing / Delay Analysis
+
+
+
+The timing analysis result is shown below:
+
+
+
+Power Analysis
+
+
+
+The estimated power analysis result is shown below:
+
+
+
+🧰 Tools Used
+
+Verilog HDL
+
+Xilinx ISE 14.7
+
+RTL Design
+
+Functional Simulation
+
+FPGA Synthesis and Analysis
+
+📁 Project Structure
 
 32-bit-carry-look-ahead-adder/
 
@@ -190,5 +234,53 @@ Carry Look-Ahead Adders are useful in high-speed arithmetic circuits such as:
 
 ├── tb.v
 
+│
+
+├── waveform.png
+
+├── area\_lut.png
+
+├── area\_iob.png
+
+├── delay.png
+
+├── power.png
+
+│
+
 └── README.md
+
+🚀 Applications
+
+
+
+Carry Look-Ahead Adders can be used in high-speed arithmetic circuits such as:
+
+
+
+Arithmetic Logic Units (ALUs)
+
+Processor datapaths
+
+DSP systems
+
+High-speed arithmetic units
+
+Digital signal processing applications
+
+🔮 Future Improvements
+
+Perform detailed synthesis and area analysis
+
+Analyze maximum operating frequency
+
+Compare CLA performance with a Ripple Carry Adder
+
+Add more comprehensive testbench scenarios
+
+Add corner-case verification
+
+Explore FPGA hardware implementation
+
+Extend verification using SystemVerilog and UVM
 
