@@ -10,7 +10,7 @@ A hierarchical RTL implementation of a \*\*32-bit Carry Look-Ahead Adder (CLA)\*
 
 
 
-\## 📌 Objective
+**\## 📌 Objective**
 
 
 
@@ -30,7 +30,7 @@ This reduces carry propagation delay and makes the CLA suitable for high-speed a
 
 
 
-\## 🏗️ Design Overview
+**\## 🏗️ Design Overview**
 
 
 
@@ -90,7 +90,7 @@ Multiple 4-bit blocks to construct the 32-bit adder
 
 A Verilog testbench for functional verification
 
-⚙️ How Carry Look-Ahead Works
+**##**⚙️ How Carry Look-Ahead Works**
 
 
 
@@ -126,7 +126,7 @@ This approach allows carry signals to be determined faster than in a conventiona
 
 
 
-📂 Module Description
+**##📂 Module Description**
 
 File	Description
 
@@ -138,7 +138,7 @@ gp\_1bit.v	Generate and Propagate logic
 
 tb.v	Verilog testbench for functional verification
 
-🔬 Simulation \& Verification
+##**🔬 Simulation \& Verification**
 
 
 
@@ -174,7 +174,7 @@ The following waveform demonstrates the simulated behavior of the 32-bit Carry L
 
 
 
-📊 Synthesis \& Analysis Results
+**##📊 Synthesis \& Analysis Results**
 
 
 
@@ -208,7 +208,7 @@ The estimated power analysis result is shown below:
 
 
 
-🧰 Tools Used
+**##🧰 Tools Used**
 
 Verilog HDL
 
@@ -220,7 +220,7 @@ Functional Simulation
 
 FPGA Synthesis and Analysis
 
-📁 Project Structure
+**##📁 Project Structure**
 
 32-bit-carry-look-ahead-adder/
 
@@ -268,7 +268,7 @@ High-speed arithmetic units
 
 Digital signal processing applications
 
-🔮 Future Improvements
+**##🔮 Future Improvements**
 
 Perform detailed synthesis and area analysis
 
