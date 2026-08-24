@@ -1,4 +1,4 @@
-\**### 32-bit Carry Look-Ahead Adder**
+**\### 32-bit Carry Look-Ahead Adder**
 
 A hierarchical RTL implementation of a \*\*32-bit Carry Look-Ahead Adder (CLA)\*\* using Verilog HDL, with functional verification and FPGA-oriented synthesis analysis.
 
@@ -185,18 +185,28 @@ FPGA Synthesis and Analysis
 
 **##🚀 Applications**
 Carry Look-Ahead Adders can be used in high-speed arithmetic circuits such as:
-Arithmetic Logic Units (ALUs)
+Arithmetic Logic Units (ALUs) 
+
 Processor datapaths
+
 DSP systems
+
 High-speed arithmetic units
+
 Digital signal processing applications
 
 **##🔮 Future Improvements**
 Perform detailed synthesis and area analysis
+
 Analyze maximum operating frequency
+
 Compare CLA performance with a Ripple Carry Adder
+
 Add more comprehensive testbench scenarios
+
 Add corner-case verification
+
 Explore FPGA hardware implementation
+
 Extend verification using SystemVerilog and UVM
 
