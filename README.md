@@ -88,7 +88,7 @@ C(i+1) = G(i) + P(i)C(i)
 
 This approach allows carry signals to be determined faster than in a conventional Ripple Carry Adder.
 
-****##📂 Module Description****
+****## 📂 Module Description****
 
 File	Description
 
@@ -100,7 +100,7 @@ gp\_1bit.v	Generate and Propagate logic
 
 tb.v	Verilog testbench for functional verification
 
-**##🔬 Simulation \& Verification***
+**## 🔬 Simulation \& Verification***
 
 
 The design was functionally verified using a Verilog testbench.
@@ -123,7 +123,7 @@ Simulation Waveform
 
 The following waveform demonstrates the simulated behavior of the 32-bit Carry Look-Ahead Adder.
 
-**##📊 Synthesis \& Analysis Results**
+**## 📊 Synthesis \& Analysis Results**
 
 The design was synthesized using Xilinx ISE 14.7 and analyzed for area, timing, and power characteristics.
 
@@ -141,7 +141,7 @@ Power Analysis
 
 The estimated power analysis result is shown below:
 
-**##🧰 Tools Used**
+**## 🧰 Tools Used**
 
 Verilog HDL
 
@@ -153,7 +153,7 @@ Functional Simulation
 
 FPGA Synthesis and Analysis
 
-**##📁 Project Structure**
+**## 📁 Project Structure**
 
 32-bit-carry-look-ahead-adder/
 
